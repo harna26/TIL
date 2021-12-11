@@ -4,7 +4,7 @@
 
 ![spring_basic_04.png](../img/spring_basic_04.png)   
 → controller를 먼저 확인하고 없으면 .. → 내부에 있는 resources를 확인함   
-
+<br>
 ## MVC와 템플릿 엔진
 
 ```java
@@ -17,7 +17,7 @@
 → required = true (default) / required = false로 하면 안넘겨줘도 오류 X   <br>
 ![spring_basic_05.png](../img/spring_basic_05.png)   
 ![spring_basic_06.png](../img/spring_basic_06.png)    
-
+<br>
 ## API
 
 ```java
