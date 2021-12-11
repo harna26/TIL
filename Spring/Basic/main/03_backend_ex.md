@@ -8,7 +8,7 @@
 
 ![spring_basic_10.png](../img/spring_basic_10.png)   
 ![spring_basic_11.png](../img/spring_basic_11.png)   
-
+<br>
 ## domain & repository
 
 ```java
@@ -91,6 +91,7 @@ public class MemoryMemberRepository implements MemberRepository {
     } // findAll
 } // end class
 ```
+<br>
 
 ## repository test 
 
@@ -181,6 +182,7 @@ public void clearStore(){
         repository.clearStore();
     } // afterEach
 ```
+<br>
 
 ## service
 
@@ -230,11 +232,12 @@ public class MemberService {
 
 } // end class
 ```
+<br>
 
 ## service test
-✨ 새로운 테스트 클래스를 만들어줌 ✨   
+✨ 새로운 테스트 클래스를 만들어줌 ✨    
 → 클래스 잡고 alt+shift+t
-<br>
+
 ```java
 package hello.hellospring.service;
 
@@ -320,11 +323,12 @@ class MemberServiceTest {
 } // end class
 ```
 <br>
-※ MemberService 에서도 memoryMemberRepository 를 new 해주고 test 에서도 new .. 다른 객체   
+※ MemberService 에서도 memoryMemberRepository 를 new 해주고 test 에서도 new .. 다른 객체<br>
 → @BeforeEach : 각 테스트 실행 전에 호출된다. 테스트가 서로 영향이 없도록 항상 새로운 객체를 생성하고, 의존관계도 새로 맺어준다.
+
 - MemberService
 ```java
-	private final MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
@@ -333,7 +337,7 @@ class MemberServiceTest {
 
 - MemberServiceTest
 ```java
-	MemberService memberService;
+    MemberService memberService;
     MemoryMemberRepository memberRepository;
 
     @BeforeEach
