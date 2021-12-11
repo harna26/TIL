@@ -10,9 +10,11 @@
     
 2. 자바 코드로 직접 스프링 빈 등록하기
 
+<br>
+
 ## 컴포넌트 스캔과 자동 의존관계 설정
 
-- @Controller 라는 어노테이션이 있으면  스프링 컨테이너가 관리하게 된다.
+- @Controller 라는 어노테이션이 있으면  스프링 컨테이너가 관리하게 된다.<br>
 ▶️ @Autowired
 ```java
 package hello.hellospring.controller;
@@ -44,6 +46,8 @@ public class MemeberController {
 → @Controller @Service @Repository 어노테이션으로 스프링 빈으로 자동 등록 됨
 <br>
 ![spring_basic_13.png](../img/spring_basic_13.png)   
+
+<br>
 
 ## 자바코드로 직접 스프링 빈 등록
 
