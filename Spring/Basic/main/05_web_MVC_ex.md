@@ -2,7 +2,7 @@
 
 ## 홈 화면
 
-※index.html , HomeController    
+※ index.html , HomeController (Controller가 정적 파일보다 우선)    
 controller " / " 매핑이 되어 있는 곳으로 이동되고     
 없으면 static(정적) index.html 으로 이동
 
