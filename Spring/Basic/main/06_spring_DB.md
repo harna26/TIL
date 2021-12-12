@@ -1,5 +1,4 @@
-✨ ctrl + alt + v : 리턴값에 맞는 변수 자동 생성 ✨   
-
+✨ ctrl + alt + v : 리턴값에 맞는 변수 자동 생성 ✨     
 ✨ ctrl + alt + n : inline 한줄로 만들기 ✨   
 
 # 스프링 DB 접근 기술   
@@ -8,7 +7,7 @@ JPA를 사용하면 객체를 바로 쿼리없이 DB에 저장
 
 ## H2 데이터베이스 설치   
 
-- 개발이나 테스트용도로 가볍고 편리한 DB, 웹 화면 제공
+- 개발이나 테스트용도로 가볍고 편리한 DB, 웹 화면 제공     
 - https://www.h2database.com/html/main.html
 1. 다운로드 후 압축 풀기 
 2. cmd : bin 폴더에 가서 h2.bat (맥: ./h2.sh)   
@@ -273,14 +272,14 @@ public class SpringConfig {
 ![spring_basic_22.png](../img/spring_basic_22.png)     
 ![spring_basic_23.png](../img/spring_basic_23.png)     
 
-→ 개방-폐쇄 원칙(OCP, Open-Closed Principle)
-      → 확장에는 열려있고, 수정, 변경에는 닫혀있다.
+→ 개방-폐쇄 원칙(OCP, Open-Closed Principle)     
+　→ 확장에는 열려있고, 수정, 변경에는 닫혀있다.    
 → 스프링의 DI (Dependencies Injection)을 사용하면 **기존 코드를 전혀 손대지 않고, 설정만으로 구현
-클래스를 변경할 수 있다.**
-→ 회원을 등록하고 DB에 결과가 잘 입력되는지 확인하자.
-→ 데이터를 DB에 저장하므로 스프링 서버를 다시 실행해도 데이터가 안전하게 저장된다.
+클래스를 변경할 수 있다.**    
+→ 회원을 등록하고 DB에 결과가 잘 입력되는지 확인하자.    
+→ 데이터를 DB에 저장하므로 스프링 서버를 다시 실행해도 데이터가 안전하게 저장된다.    
 
-<br>
+<br/>
 
 ## 스프링 통합 테스트
 
@@ -355,11 +354,11 @@ class MemberServiceIntegrationTest {
     } // findOne
 } // end class
 ```
-→ @SpringBootTest : 스프링 컨테이너와 테스트를 함께 실행한다    
-→ @Transactional : 테스트 시작 전에 transaction을 시작하고, 테스트 완료 후에 항상 롤백한다.    
-    즉, DB 에 실제 데이터가 안들어간다 (다음 테스트에 영향을 주지 않는다)
-    @AfterEach
-    public void afterEach() { memberRepository.clearStore(); } 필요 없다.
+→ @SpringBootTest : 스프링 컨테이너와 테스트를 함께 실행한다       
+→ @Transactional : 테스트 시작 전에 transaction을 시작하고, 테스트 완료 후에 항상 롤백한다.       
+　즉, DB 에 실제 데이터가 안들어간다 (다음 테스트에 영향을 주지 않는다)    
+　@AfterEach     
+　public void afterEach() { memberRepository.clearStore(); } 필요 없다.    
 
 <br>
 
