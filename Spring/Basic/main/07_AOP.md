@@ -150,7 +150,7 @@ OR
 
 <br>
 
-- AOP 동작 방식
+- AOP 동작 방식     
 ![spring_basic_29.png](../img/spring_basic_29.png)
 ![spring_basic_30.png](../img/spring_basic_30.png)
 
