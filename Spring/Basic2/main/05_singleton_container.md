@@ -149,7 +149,7 @@ public class SingletonService {
     } // springContainer
 ```
 
-- 싱글톤 컨테이너 적용 후
+- 싱글톤 컨테이너 적용 후     
 ![spring_basic2_46.png](../img/spring_basic2_46.png)
 
 <br/>
@@ -297,12 +297,12 @@ public class ConfigurationSingletonTest {
 } // end class
 ```
 
-![spring_basic2_48.png](../img/spring_basic2_48.png)
+![spring_basic2_48.png](../img/spring_basic2_48.png)      
 → 모두 같은 인스턴스를 참고하고 있다     
 <br/>
 
 - 호출로그를 찍어보자..
-![spring_basic2_49.png](../img/spring_basic2_49.png)
+![spring_basic2_49.png](../img/spring_basic2_49.png)      
 → memberRepository는 3번 호출 되어야 하는게 아닌가...? 
 
 <br/>
