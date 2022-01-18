@@ -259,3 +259,128 @@ public class Main4 {
 
 } // end class
 ```
+<br/>
+
+## 5. 특정 문자 뒤집기(toCharArray())      
+
+✅`Character.isAlphabetic()`      
+→ ()가 알파벳이면 true, 아니면 false      
+✅ `.toCharArray()`      
+→ String(문자열)을 char형 배열로 바꿔준다      
+✅ `String.valueOf()`      
+→ String(문자열)로 변환      
+
+```java
+import java.util.Scanner;
+
+public class Main5 {
+    public String solution(String str) {
+        String answer;
+        char[] ch = str.toCharArray();  // String을 char형 배열로 바꾼다
+        int lt = 0, rt = str.length() - 1;
+
+        while (lt < rt) {
+            if (!Character.isAlphabetic(ch[lt]))    lt++;   // lt가 알파벳이 아니면 증가
+            else if (!Character.isAlphabetic(ch[rt]))  rt--;
+            else {
+                char tmp = ch[lt];
+                ch[lt] = ch[rt];
+                ch[rt] = tmp;
+                lt++;
+                rt--;
+            }// if-else
+        }// while
+
+        answer = String.valueOf(ch);    // String으로 변환
+
+        return answer;
+    }// solution
+
+    public static void main(String[] args) {
+        Main5 main = new Main5();
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+
+        System.out.println(main.solution(str));
+
+    }// main
+}// end class
+```
+
+<br/>
+
+## 6. 중복문자제거
+
+✅ `.charAt(0)`      
+→ 인덱스 (0)번째 문자를 반환      
+✅ `indexOf()`      
+
+```java
+import java.util.Scanner;
+
+public class Main6 {
+    public String solution(String str) {
+        String answer = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            System.out.println(str.charAt(i) + " " + i + " " + str.indexOf(str.charAt(i)));
+
+            if (str.indexOf(str.charAt(i)) == i)    answer += str.charAt(i);
+        }// for
+
+        return answer;
+    }// solution
+
+    public static void main(String[] args) {
+        Main6 main = new Main6();
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+
+        System.out.println(main.solution(str));
+    }// main
+}// end class
+```
+
+![02_Algorithm.png](img/02_Algorithm.png)     
+
+<br/>
+
+## 7. 회문문자열(StringBuilder)
+
+✅`.equalsIgnoreCase()`      
+→ 대소문자 구분 X      
+
+```java
+import java.util.Scanner;
+
+public class Main7 {
+    public String solution(String str) {
+        String answer = "YES";
+
+/*
+        str = str.toUpperCase();
+        int len = str.length();
+
+        for (int i = 0; i < len / 2; i++) {
+            if (str.charAt(i) != str.charAt(len - i - 1)) answer = "NO";
+        }// for
+*/
+
+        /**
+         * StringBuilder
+         */
+        String tmp = new StringBuilder(str).reverse().toString();
+        if (!str.equalsIgnoreCase(tmp)) answer = "NO";
+
+        return answer;
+    }// solution
+
+    public static void main(String[] args) {
+        Main7 main = new Main7();
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+
+        System.out.println(main.solution(str));
+    }// main
+}// end class
+```
