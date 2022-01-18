@@ -194,7 +194,7 @@ public class Main3 {
 ## 4. 단어 뒤집기(StringBuilder이용법 또는 직접뒤집기)
 
 ✅ `StringBuilder()`     
-→ String은 **불변(immutable)**하기 때문에 값을 변경할 수 없다     
+→ String은 **불변(immutable)** 하기때문에 값을 변경할 수 없다     
 → **StringBuffer**와 **StringBuilder**는 **변하기 때문에(mutable)** `.append()`, `.delete()` 등을 통해서 값을 변경할 수 있다.     
 
 
