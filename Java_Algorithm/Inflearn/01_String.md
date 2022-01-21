@@ -384,3 +384,220 @@ public class Main7 {
     }// main
 }// end class
 ```
+
+## 8. 팰린드롬(replaceAll 정규식이용)
+
+```java
+import java.util.Scanner;
+
+public class Main8 {
+    public String solution(String str) {
+        String answer = "NO";
+        
+        // 대문자로 바꾸고 대문자 A-Z가 ^(아니면) 빈문자로 바꾸기
+        str = str.toUpperCase().replaceAll("[^A-Z]", "");
+//        System.out.println(str);    // FOUNDTIMESTUDYYDUTSEMITDNUOF
+
+        String tmp = new StringBuilder(str).reverse().toString();
+        if (str.equals(tmp)) answer = "YES";
+
+        return answer;
+    }// solution
+
+    public static void main(String[] args) {
+        Main8 main = new Main8();
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        System.out.println(main.solution(str));
+    }// main
+}// end class
+```
+
+## 9. 숫자만 추출
+
+✅ 문자형 숫자 아스키 코드      
+‘0’ ~ ‘9’ → 48 ~ 57      
+answer = answer * 10 + (x-48)      
+
+![03_Algorithm.png](img/03_Algorithm.png)     
+
+✅ Character.isDigit()      
+→ () char 값이 숫자인지 여부를 판단      
+
+```java
+import java.util.Scanner;
+
+public class Main9 {
+
+    public int solution(String str) {
+        /**
+         * 아스키 코드
+         */
+/*
+        int answer = 0;
+
+        for (char x : str.toCharArray()) {
+            if (x >= 48 && x <= 57) answer = answer * 10 + (x - 48);
+        }// for
+
+        return answer;
+*/
+
+        /**
+         * isDigit
+         * String -> Integer.parseInt
+         */
+        String answer = "";
+
+        for (char x : str.toCharArray()) {
+            if (Character.isDigit(x)) answer += x;
+        }// for
+
+        return Integer.parseInt(answer);
+
+    }// solution
+
+    public static void main(String[] args) {
+        Main9 main = new Main9();
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+
+        System.out.println(main.solution(str));
+    }// main
+
+}// end class
+```
+
+## 10. 문자거리
+
+![04_Algorithm.png](img/04_Algorithm.png)     
+
+```java
+import java.util.Scanner;
+
+public class Main10 {
+    public int[] solution(String str, char c){
+        int[] answer = new int[str.length()];
+        int point = 1000;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == c) {
+                // str 의 문자가 입력받은 c와 같다면 point 를 0으로
+                point = 0;
+                answer[i] = point;
+            } else {
+                // 아니면 point의 값을 1증가
+                point++;
+                answer[i] = point;
+            } // if-else
+        }// for
+
+        // 거꾸로
+        point = 1000;
+        for (int i = str.length() - 1; i >= 0; i--) {
+            if (str.charAt(i) == c) {
+                // str 의 문자가 입력받은 c와 같다면 point 를 0으로
+                point = 0;
+            } else {
+                // 아니면 point의 값을 1증가
+                point++;
+                // 작은 값을 넣어라
+                answer[i] = Math.min(answer[i], point);
+            } // if-else
+        }// for
+
+        return answer;
+    }// solution
+
+    public static void main(String[] args) {
+        Main10 main = new Main10();
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        char c = sc.next().charAt(0);
+
+        for (int x : main.solution(str, c)) {
+            System.out.print(x + " ");
+        }// for
+    }// main
+}// end class
+```
+
+## 11. 문자열 압축
+
+```java
+import java.util.Scanner;
+
+public class Main11 {
+    public String solution(String str) {
+        String answer = "";
+        str = str + " ";
+        int cnt = 1;
+
+        for (int i = 0; i < str.length() - 1; i++) {
+            if (str.charAt(i) == str.charAt(i + 1)) {
+                cnt++;
+            } else {
+                answer += str.charAt(i);
+                if (cnt > 1) {
+                    // String 타입으로 변환 후 answer 에 붙이기
+                    answer += String.valueOf(cnt);
+                }// if
+                cnt = 1;
+            }// if-else
+
+        }// for
+
+        return answer;
+    }// solution
+
+    public static void main(String[] args) {
+        Main11 main = new Main11();
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+
+        System.out.println(main.solution(str));
+    }// main
+}// end class
+```
+
+## 12. 암호(replace(), parseInt(string, 2))
+
+`Integer.parseInt(x, 2)` : 2 → 10진수      
+`Integer.parseInt(x, 8)` : 8 → 10진수      
+`Integer.parseInt(x, 16)` 16 → 10진수      
+
+```java
+import java.util.Scanner;
+
+public class Main12 {
+    public String solution(int num , String str) {
+        String answer = "";
+
+        for (int i = 0; i < num; i++) {
+            // 0부터 7번 index 까지 자르기
+            String tmp = str.substring(0, 7).replace('#', '1').replace('*', '0');
+            System.out.println(tmp);    // #****## 만 4번
+            str = str.substring(7);
+
+            // 2 -> 10진수화 시키기
+            int numChange = Integer.parseInt(tmp, 2);
+            System.out.println(tmp + " " + numChange);
+
+            // char 로 캐스팅
+            answer += (char) numChange;
+        }// for
+
+        return answer;
+    }// solution
+
+    public static void main(String[] args) {
+        Main12 main = new Main12();
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        String str = sc.next();
+
+        System.out.println(main.solution(num, str));
+    }// main
+}// end class
+```
